@@ -13,6 +13,15 @@ import java.util.List;
  */
 public interface UsersDao {
 
+
+    /**
+     * 根据用户名查询用户数量
+     *
+     * @param username
+     * @return
+     */
+    Integer queryUsernameIsExist(@Param("username") String username);
+
     /**
      * 通过ID查询单条数据
      *
@@ -63,4 +72,11 @@ public interface UsersDao {
      */
     int deleteById(String id);
 
+    /**
+     * 检索用户名和密码是否匹配,用于登录
+     *
+     * @param username
+     * @param password
+     */
+    Users queryUsersForLogin(@Param("username") String username, @Param("password") String password);
 }

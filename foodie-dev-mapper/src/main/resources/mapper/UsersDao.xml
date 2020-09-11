@@ -77,11 +77,14 @@
             </if>
         </where>
     </select>
+    <select id="queryUsernameIsExist" resultType="java.lang.Integer">
+        Select COUNT(1) from users where username = #{username}
+    </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into users(username, password, nickname, realname, face, mobile, email, sex, birthday, created_time, updated_time)
-        values (#{username}, #{password}, #{nickname}, #{realname}, #{face}, #{mobile}, #{email}, #{sex}, #{birthday}, #{createdTime}, #{updatedTime})
+    <insert id="insert" keyProperty="id" >
+        insert into users(id,username, password, nickname, realname, face, mobile, email, sex, birthday, created_time, updated_time)
+        values (#{id},#{username}, #{password}, #{nickname}, #{realname}, #{face}, #{mobile}, #{email}, #{sex}, #{birthday}, #{createdTime}, #{updatedTime})
     </insert>
 
     <!--通过主键修改数据-->
@@ -130,4 +133,7 @@
         delete from users where id = #{id}
     </delete>
 
+    <select id="queryUsersForLogin" resultType="com.lyming.pojo.Users">
+        select * FROM users WHERE username=#{username} AND password = #{password}
+    </select>
 </mapper>
