@@ -6,6 +6,8 @@ import com.lyming.pojo.Category;
 import com.lyming.service.CarouselService;
 import com.lyming.service.CategoryService;
 import com.lyming.utils.IMOOCJSONResult;
+import com.lyming.vo.CategoryVO;
+import com.lyming.vo.NewItemsVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;

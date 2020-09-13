@@ -13,7 +13,7 @@ public class NewItemsVO {
     private String catImage;
     private String bgColor;
 
-    private List<com.imooc.pojo.vo.SimpleItemVO> simpleItemList;
+    private List<SimpleItemVO> simpleItemList;
 
     public Integer getRootCatId() {
         return rootCatId;
@@ -55,11 +55,11 @@ public class NewItemsVO {
         this.bgColor = bgColor;
     }
 
-    public List<com.imooc.pojo.vo.SimpleItemVO> getSimpleItemList() {
+    public List<SimpleItemVO> getSimpleItemList() {
         return simpleItemList;
     }
 
-    public void setSimpleItemList(List<com.imooc.pojo.vo.SimpleItemVO> simpleItemList) {
+    public void setSimpleItemList(List<SimpleItemVO> simpleItemList) {
         this.simpleItemList = simpleItemList;
     }
 }

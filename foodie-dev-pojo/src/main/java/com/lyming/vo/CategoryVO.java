@@ -13,7 +13,7 @@ public class CategoryVO {
     private Integer fatherId;
 
     // 三级分类vo list
-    private List<com.imooc.pojo.vo.SubCategoryVO> subCatList;
+    private List<SubCategoryVO> subCatList;
 
     public Integer getId() {
         return id;
@@ -47,11 +47,11 @@ public class CategoryVO {
         this.fatherId = fatherId;
     }
 
-    public List<com.imooc.pojo.vo.SubCategoryVO> getSubCatList() {
+    public List<SubCategoryVO> getSubCatList() {
         return subCatList;
     }
 
-    public void setSubCatList(List<com.imooc.pojo.vo.SubCategoryVO> subCatList) {
+    public void setSubCatList(List<SubCategoryVO> subCatList) {
         this.subCatList = subCatList;
     }
 }

@@ -2,6 +2,8 @@ package com.lyming.service;
 
 
 import com.lyming.pojo.Category;
+import com.lyming.vo.CategoryVO;
+import com.lyming.vo.NewItemsVO;
 
 import java.util.List;
 
