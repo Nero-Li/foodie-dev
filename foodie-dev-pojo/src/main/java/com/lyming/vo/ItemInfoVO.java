@@ -1,4 +1,4 @@
-package lyming.vo;
+package com.lyming.vo;
 
 
 import com.lyming.pojo.Items;
