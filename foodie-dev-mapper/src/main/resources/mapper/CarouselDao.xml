@@ -55,9 +55,6 @@
             <if test="type != null">
                 and type = #{type}
             </if>
-            <if test="sort != null">
-                and sort = #{sort}
-            </if>
             <if test="isShow != null">
                 and is_show = #{isShow}
             </if>
@@ -68,6 +65,7 @@
                 and update_time = #{updateTime}
             </if>
         </where>
+        order by sort desc
     </select>
 
     <!--新增所有列-->
