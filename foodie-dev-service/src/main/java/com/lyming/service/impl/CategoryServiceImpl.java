@@ -1,15 +1,20 @@
 package com.lyming.service.impl;
 
 import com.lyming.mapper.CategoryDao;
+import com.lyming.mapper.CategoryMapperCustom;
 import com.lyming.pojo.Category;
 import com.lyming.service.CategoryService;
+import com.lyming.vo.CategoryVO;
+import com.lyming.vo.NewItemsVO;
 import io.swagger.annotations.Example;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 商品分类 (Category)表服务实现类
@@ -22,6 +27,9 @@ public class CategoryServiceImpl implements CategoryService {
     @Resource
     private CategoryDao categoryDao;
 
+    @Resource
+    private CategoryMapperCustom categoryMapperCustom;
+
     @Transactional(propagation = Propagation.SUPPORTS)
     @Override
     public List<Category> queryAllRootLevelCat() {
@@ -29,6 +37,21 @@ public class CategoryServiceImpl implements CategoryService {
         category.setType(1);
         List<Category> result =  categoryDao.queryAll(category);
         return result;
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<CategoryVO> getSubCatList(Integer rootCatId) {
+        return categoryMapperCustom.getSubCatList(rootCatId);
+    }
+
+    @Transactional(propagation = Propagation.SUPPORTS)
+    @Override
+    public List<NewItemsVO> getSixNewItemsLazy(Integer rootCatId) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("rootCatId", rootCatId);
+
+        return categoryMapperCustom.getSixNewItemsLazy(map);
     }
 
     /**
